@@ -1,5 +1,6 @@
 package com.example.notesapp.Dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
@@ -11,8 +12,8 @@ import java.util.List;
 @androidx.room.Dao
 public interface NotesDao {
 
-    @Query("SELECT * FROM NOTES_DATABASE")
-    List<Notes> getAllNotes();
+    @Query("SELECT * FROM Notes_Database")
+    LiveData<List<Notes>> getAllNotes();
 
     @Insert
     void insertNotes(Notes... notes);
@@ -21,6 +22,6 @@ public interface NotesDao {
     void deleteNotes(int id);
 
     @Update
-    void insertNotes(Notes notes);
+    void updateNotes(Notes notes);
 
 }
